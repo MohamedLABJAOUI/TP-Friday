@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - product-service
+      - order-service
+      - rabbitmq
+
+  frontend:
+    build: ./frontend
+    expose:
+      - "3000"
+    depends_on:
+      - product-service
+      - order-service
+    environment:
+      - REACT_APP_PRODUCT_SERVICE_URL=http://localhost/api/products
+      - REACT_APP_ORDER_SERVICE_URL=http://localhost/api/orders
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    expose:
+      - "5672"
+      - "15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    
+  product-service:
+    build: ./product-service
+    expose:
+      - "3001"
+    environment:
+      - PORT=3001
+      - JWT_SECRET=votre_secret_jwt_super_securise
+      - MONGODB_URI=mongodb://mongodb:27017/products
+
+  order-service:
+    build: ./order-service
+    expose:
+      - "3002"
+    environment:
+      - PORT=3002
+      - JWT_SECRET=votre_secret_jwt_super_securise
+      - MONGODB_URI=mongodb://mongodb:27017/orders
+      - PRODUCT_SERVICE_URL=http://product-service:3001
+
+  mongodb:
+    image: mongo:latest
+    expose:
+      - "27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data: 

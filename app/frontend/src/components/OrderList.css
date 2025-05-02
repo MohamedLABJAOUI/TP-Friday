@@ -1,0 +1,178 @@
+.order-list-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.order-list-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.order-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.order-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.order-total {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.order-products {
+  list-style: none;
+  padding: 0;
+}
+
+.order-product-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.order-product-item:last-child {
+  border-bottom: none;
+}
+
+.product-name {
+  color: #333;
+}
+
+.product-details {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.MuiCard-root {
+  transition: all 0.3s ease-in-out;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.MuiTableRow-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.MuiChip-root {
+  font-weight: 500;
+}
+
+.MuiCardHeader-root {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.MuiCardContent-root {
+  padding: 24px;
+}
+
+.MuiTableContainer-root {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.MuiTableCell-root {
+  padding: 12px 16px;
+}
+
+.MuiTableCell-head {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.MuiAlert-root {
+  border-radius: 8px;
+}
+
+.MuiButton-root {
+  text-transform: none;
+  font-weight: 500;
+}
+
+.MuiIconButton-root {
+  transition: transform 0.2s ease-in-out;
+}
+
+.MuiIconButton-root:hover {
+  transform: rotate(180deg);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.MuiSkeleton-root {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.MuiChip-colorSuccess {
+  background-color: rgba(46, 125, 50, 0.1);
+  color: #2e7d32;
+}
+
+.MuiChip-colorWarning {
+  background-color: rgba(237, 108, 2, 0.1);
+  color: #ed6c02;
+}
+
+.MuiChip-colorError {
+  background-color: rgba(211, 47, 47, 0.1);
+  color: #d32f2f;
+}
+
+.empty-state {
+  padding: 48px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  color: rgba(0, 0, 0, 0.38);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .MuiCardContent-root {
+    padding: 16px;
+  }
+  
+  .MuiTableCell-root {
+    padding: 8px 12px;
+  }
+  
+  .empty-state {
+    padding: 32px 16px;
+  }
+} 
